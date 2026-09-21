@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 무주택 근로자 월세 세액공제 한도 & 현금영수증 소득공제 실익 판별기</title>
+  <meta name="description" content="조특법 제95조의2 개정 총급여 8,000만 원 이하, 한도 1,000만 원 반영 월세 세액공제 vs 결정세액 부족 시 현금영수증 소득공제 실익 1:1 비교">
+  <meta name="keywords" content="2026 월세 세액공제 한도, 월세 세액공제 소득기준 8000만원, 연말정산 월세 환급금 계산기, 조세특례제한법 95조의2, 월세 세액공제 소득공제 비교">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+  <style>
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; }
+    .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🏠</span>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900 leading-tight">2026 월세 세액공제 vs 소득공제 실익 판별기</h1>
+          <p class="text-xs text-slate-500">한도 1,000만 원 상향 반영 · 결정세액 소멸 방어 · 현금영수증 전환 1:1 비교</p>
+        </div>
+      </div>
+      <a href="guides/guide.html" class="text-xs font-semibold bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg hover:bg-emerald-100 transition border border-emerald-200">
+        📘 절세 가이드북
+      </a>
+    </div>
+  </header>
+
+  <div class="manual-ad-box mx-auto my-2 px-4">
+    <ins class="adsbygoogle"
+         style="display:block; height: 60px; max-height: 60px;"
+         data-ad-client="ca-pub-2228289204702106"
+         data-ad-slot="3824727725"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Input Form (6 cols) -->
+      <section class="lg:col-span-6 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-5">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+            <span>⚙️</span> 근로자 소득 및 월세 지급 내역 입력
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">2026년 조세특례제한법 제95조의2 및 제126조의2 기준이 적용됩니다.</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1" for="total-salary">근로자 총급여액 (세전 연봉, 원)</label>
+          <input type="text" id="total-salary" value="52,000,000" class="w-full px-3 py-2.5 border border-slate-300 rounded-xl text-base font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+          <p class="text-xs text-slate-500 mt-1">8,000만 원 이하 시 세액공제 대상 (5,500만 이하 17%, 초과~8,000만 15%)</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-slate-600 mb-1" for="monthly-rent">매월 실제 지급 월세액 (원)</label>
+            <input type="text" id="monthly-rent" value="800,000" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-base focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-600 mb-1" for="rent-months">지급 개월 수</label>
+            <select id="rent-months" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg text-base focus:outline-none">
+              <option value="12" selected>12개월 (1년)</option>
+              <option value="6">6개월</option>
+              <option value="3">3개월</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1" for="estimated-tax">공제 전 산출 결정세액 (원, 미입력 시 자동 추정)</label>
+          <input type="text" id="estimated-tax" value="1,100,000" class="w-full px-3 py-2.5 border border-slate-300 rounded-xl text-base font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+          <p class="text-xs text-amber-600 mt-1">⚠️ 중요: 세액공제는 결정세액 한도 내에서만 차감되며 초과분은 환급되지 않고 소멸합니다.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-xs text-slate-700">
+          <span class="font-bold text-slate-800">주택 요건 확인</span>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="check-house" checked class="rounded text-emerald-600 focus:ring-emerald-500">
+            국민주택규모(85㎡ 이하) 또는 기준시가 4억 원 이하 주택
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" id="check-movein" checked class="rounded text-emerald-600 focus:ring-emerald-500">
+            임대차계약서 주소지로 주민등록 전입신고 완료
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button id="calc-btn" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow transition duration-150 flex items-center justify-center gap-2 text-base">
+            <span>✨</span> 세액공제 vs 소득공제 실익 분석
+          </button>
+          <button id="reset-btn" class="px-4 py-3.5 border border-slate-300 hover:bg-slate-100 text-slate-600 font-semibold rounded-xl transition text-base">
+            초기화
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Column: Result Receipt (6 cols, Sticky) -->
+      <section class="lg:col-span-6 lg:sticky lg:top-20 space-y-4">
+        <div id="result-box" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+          <div class="border-b border-dashed border-slate-300 pb-4 mb-4 text-center">
+            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-1">
+              ✓ 최종 추천 의사결정
+            </span>
+            <h3 class="text-lg font-black text-slate-900" id="recommend-title">세액공제(경로 A) 선택이 유리</h3>
+            <p class="text-3xl font-black text-emerald-600 mt-2" id="best-refund-display">1,100,000원</p>
+            <p class="text-xs text-slate-500 mt-1" id="benefit-diff-text">현금영수증 소득공제 대비 624,800원 추가 환급</p>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs">
+              <span class="font-bold text-slate-800">[경로 A] 월세 세액공제</span>
+              <div class="flex justify-between text-slate-600">
+                <span>연간 월세 총액 (한도 1,000만 원)</span>
+                <span id="annual-rent-text" class="font-semibold text-slate-900">9,600,000원</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>명목 세액공제액 (17% 적용)</span>
+                <span id="nominal-tax-credit" class="font-semibold text-slate-900">1,632,000원</span>
+              </div>
+              <div class="flex justify-between text-rose-600 font-bold">
+                <span>결정세액 부족으로 소멸/증발액</span>
+                <span id="wasted-credit-text">-532,000원 소멸</span>
+              </div>
+              <div class="flex justify-between text-emerald-700 font-bold pt-1 border-t border-slate-200">
+                <span>실제 통장 환급액</span>
+                <span id="real-tax-credit">1,100,000원</span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 text-xs">
+              <span class="font-bold text-slate-800">[경로 B] 주택임차료 현금영수증 소득공제</span>
+              <div class="flex justify-between text-slate-600">
+                <span>소득공제 인정액 (월세의 30%)</span>
+                <span id="income-deduct-amount" class="font-semibold text-slate-900">2,880,000원</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>한계세율 (15% + 지방세 10%)</span>
+                <span class="font-semibold text-slate-900">16.5%</span>
+              </div>
+              <div class="flex justify-between text-slate-900 font-bold pt-1 border-t border-slate-200">
+                <span>실질 소득공제 절세액</span>
+                <span id="real-income-deduct">475,200원</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <button id="copy-btn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow">
+              <span>📋</span> 결과 전체 복사하기
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mt-12 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+      <h2 class="text-xl font-bold text-slate-900 mb-4">2026 월세 세액공제 핵심 FAQ</h2>
+      <div class="space-y-3">
+        <details class="group border border-slate-200 rounded-xl p-4 bg-slate-50 open:bg-white transition">
+          <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between items-center">
+            <span>Q1. 세액공제와 소득공제는 중복 적용이 되나요?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            중복 적용은 불가하며 둘 중 하나를 선택해야 합니다. 일반적으로 세액공제가 훨씬 유리하지만, 총급여가 8,000만 원을 초과하거나 결정세액이 0원인 경우에는 현금영수증 소득공제로 넘겨야 혜택을 챙길 수 있습니다.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div class="manual-ad-box mx-auto my-6 px-4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2228289204702106"
+         data-ad-slot="3416334507"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+    결과가 클립보드에 복사되었습니다.
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 space-y-1">
+      <p>© 2026 월세 세액공제 vs 소득공제 판별기. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function cleanNum(val) {
+      if (!val) return 0;
+      return parseInt(String(val).replace(/,/g, ''), 10) || 0;
+    }
+    function formatNum(num) {
+      return Math.round(num).toLocaleString('ko-KR');
+    }
+    function formatInputComma(e) {
+      const raw = e.target.value.replace(/,/g, '');
+      if (!raw || isNaN(raw)) return;
+      e.target.value = parseInt(raw, 10).toLocaleString('ko-KR');
+    }
+
+    document.getElementById('total-salary').addEventListener('input', formatInputComma);
+    document.getElementById('monthly-rent').addEventListener('input', formatInputComma);
+    document.getElementById('estimated-tax').addEventListener('input', formatInputComma);
+
+    function runCalculation() {
+      const salary = cleanNum(document.getElementById('total-salary').value);
+      const rentMonthly = cleanNum(document.getElementById('monthly-rent').value);
+      const months = parseInt(document.getElementById('rent-months').value, 10) || 12;
+      const decTax = cleanNum(document.getElementById('estimated-tax').value);
+
+      const isHouseValid = document.getElementById('check-house').checked;
+      const isMoveIn = document.getElementById('check-movein').checked;
+
+      const annualRent = rentMonthly * months;
+      const recognizedRent = Math.min(annualRent, 10000000); // 한도 1,000만 원
+
+      // Tax credit rate
+      let creditRate = 0;
+      if (isHouseValid && isMoveIn) {
+        if (salary <= 55000000) creditRate = 0.17;
+        else if (salary <= 80000000) creditRate = 0.15;
+      }
+
+      const nominalCredit = recognizedRent * creditRate;
+      const realCredit = Math.min(nominalCredit, decTax);
+      const wastedCredit = Math.max(0, nominalCredit - decTax);
+
+      // Income deduction route: 30% of rent * marginal tax rate
+      // Marginal rate approx: <14M: 6%, <50M: 15%, <88M: 24%
+      let marginalRate = 0.15;
+      if (salary > 88000000) marginalRate = 0.24;
+      else if (salary < 30000000) marginalRate = 0.06;
+
+      const deductAmount = annualRent * 0.30;
+      const incomeDeductSave = deductAmount * marginalRate * 1.1; // with local tax
+
+      const isCreditBetter = realCredit >= incomeDeductSave;
+      const bestRefund = isCreditBetter ? realCredit : incomeDeductSave;
+      const diff = Math.abs(realCredit - incomeDeductSave);
+
+      // DOM Updates
+      document.getElementById('annual-rent-text').textContent = `${formatNum(annualRent)}원`;
+      document.getElementById('nominal-tax-credit').textContent = `${formatNum(nominalCredit)}원`;
+      document.getElementById('wasted-credit-text').textContent = wastedCredit > 0 ? `-${formatNum(wastedCredit)}원 소멸` : '소멸 없음 (전액 환급)';
+      document.getElementById('real-tax-credit').textContent = `${formatNum(realCredit)}원`;
+
+      document.getElementById('income-deduct-amount').textContent = `${formatNum(deductAmount)}원`;
+      document.getElementById('real-income-deduct').textContent = `${formatNum(incomeDeductSave)}원`;
+
+      document.getElementById('recommend-title').textContent = isCreditBetter ? '세액공제(경로 A) 선택이 유리' : '소득공제(경로 B) 전환이 유리';
+      document.getElementById('best-refund-display').textContent = `${formatNum(bestRefund)}원`;
+      document.getElementById('benefit-diff-text').textContent = isCreditBetter 
+        ? `현금영수증 소득공제 대비 ${formatNum(diff)}원 추가 환급`
+        : `세액공제 대비 소득공제가 ${formatNum(diff)}원 더 유리`;
+
+      try {
+        localStorage.setItem('rent_calc_last', JSON.stringify({ salary, bestRefund }));
+      } catch (e) {}
+    }
+
+    document.getElementById('calc-btn').addEventListener('click', runCalculation);
+    document.getElementById('reset-btn').addEventListener('click', function() {
+      document.getElementById('total-salary').value = '52,000,000';
+      document.getElementById('monthly-rent').value = '800,000';
+      document.getElementById('rent-months').value = '12';
+      document.getElementById('estimated-tax').value = '1,100,000';
+      runCalculation();
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.opacity = '1';
+      setTimeout(() => { toast.style.opacity = '0'; }, 2200);
+    }
+
+    document.getElementById('copy-btn').addEventListener('click', function() {
+      const title = document.getElementById('recommend-title').textContent;
+      const best = document.getElementById('best-refund-display').textContent;
+      const c = document.getElementById('real-tax-credit').textContent;
+      const d = document.getElementById('real-income-deduct').textContent;
+      const url = window.location.href;
+
+      const summary = `[2026 월세 세액공제 vs 소득공제 분석]\n- 판정 결과: ${title}\n- 최종 실수령 환급액: ${best}\n- 세액공제 시: ${c}\n- 소득공제 시: ${d}\n👉 바로가기: ${url}`;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(summary).then(() => showToast('결과가 클립보드에 복사되었습니다.')).catch(() => fallbackCopy(summary));
+      } else {
+        fallbackCopy(summary);
+      }
+    });
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('결과가 클립보드에 복사되었습니다.');
+      } catch (err) { alert('복사 실패'); }
+      document.body.removeChild(ta);
+    }
+
+    window.addEventListener('DOMContentLoaded', runCalculation);
+  </script>
+</body>
+</html>
