@@ -457,10 +457,10 @@
     document.getElementById('estimated-tax').addEventListener('input', formatInputComma);
 
     function runCalculation() {
-      const salary = cleanNum(document.getElementById('total-salary').value);
-      const rentMonthly = cleanNum(document.getElementById('monthly-rent').value);
-      const months = parseInt(document.getElementById('rent-months').value, 10) || 12;
-      const decTax = cleanNum(document.getElementById('estimated-tax').value);
+      const salary = cleanNum(document.getElementById('total-salary')?.value);
+      const rentMonthly = cleanNum(document.getElementById('monthly-rent')?.value);
+      const months = parseInt(document.getElementById('rent-months')?.value, 10) || 12;
+      const decTax = cleanNum(document.getElementById('estimated-tax')?.value);
 
       const isHouseValid = document.getElementById('check-house').checked;
       const isMoveIn = document.getElementById('check-movein').checked;
@@ -514,10 +514,10 @@
 
     document.getElementById('calc-btn').addEventListener('click', runCalculation);
     document.getElementById('reset-btn').addEventListener('click', function() {
-      document.getElementById('total-salary').value = '52,000,000';
-      document.getElementById('monthly-rent').value = '800,000';
-      document.getElementById('rent-months').value = '12';
-      document.getElementById('estimated-tax').value = '1,100,000';
+      { const _el = document.getElementById('total-salary'); if (_el) _el.value = '52,000,000'; }
+      { const _el = document.getElementById('monthly-rent'); if (_el) _el.value = '800,000'; }
+      { const _el = document.getElementById('rent-months'); if (_el) _el.value = '12'; }
+      { const _el = document.getElementById('estimated-tax'); if (_el) _el.value = '1,100,000'; }
       runCalculation();
     });
 
